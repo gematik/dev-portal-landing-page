@@ -1,0 +1,752 @@
+<!--
+  Copyright 2026, gematik GmbH
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  *******
+
+  For additional notes and disclaimer from gematik and in case of changes
+  by gematik, find details in the "Readme" file.
+-->
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gematik Developer Portal</title>
+    <meta name="description" content="Your central hub for gematik developer resources, APIs, contract testing, specifications, and tools for the Telematikinfrastruktur.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="#" class="navbar__logo" aria-label="gematik Developer Portal Home">
+                <img src="assets/svg/logo-gematik-developer-portal.svg" alt="" class="navbar__logo-icon" width="350" height="26" loading="lazy">
+                <img src="assets/svg/logo-gematik-dev-portal-compact.svg" alt="" class="navbar__logo-icon--small" width="140" height="26" loading="lazy">
+            </a>
+            <nav class="navbar__nav" id="main-nav">
+                <a href="#features" class="navbar__link" data-i18n="nav.features">Features</a>
+                <a href="#getting-started" class="navbar__link" data-i18n="nav.gettingStarted">Getting Started</a>
+                <a href="#resources" class="navbar__link" data-i18n="nav.resources">Resources</a>
+                <a href="#community" class="navbar__link" data-i18n="nav.community">Community</a>
+            </nav>
+            <button class="lang-toggle" id="lang-toggle" aria-label="Switch language" title="Deutsch / English">
+                <span class="lang-toggle__option lang-toggle__option--active" data-lang="en">EN</span>
+                <span class="lang-toggle__option" data-lang="de">DE</span>
+            </button>
+            <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__pilot-badge">
+            <span class="hero__pilot-heart">💚</span>
+            <span class="hero__pilot-text" data-i18n-html="hero.pilot">Pilot<br>WIP</span>
+        </div>
+        <div class="hero__bg">
+            <div class="hero__gradient"></div>
+            <div class="hero__grid"></div>
+        </div>
+        <div class="container hero__inner">
+            <div class="hero__badge" data-i18n="hero.badge">Developer Portal — Pilot</div>
+            <h1 class="hero__title" data-i18n-html="hero.title">
+                Building the future of the<br>
+                <span class="hero__title--highlight">TI developer experience.</span>
+            </h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">
+                Welcome to the gematik Developer Portal pilot. Currently featuring the 
+                VSDM 2.0 API, this portal gives you interactive documentation, a mock server, 
+                contract testing, and code generation — everything you need to integrate 
+                with the Telematikinfrastruktur. More APIs will follow based on your feedback.
+            </p>
+            <!-- TODO: Add stats when they are available 
+            <div class="hero__stats" hidden>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">1 API</span>
+                    <span class="hero__stat-label" data-i18n="hero.stat1">VSDM2 — Pilot Phase</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">API Lifecycle</span>
+                    <span class="hero__stat-label" data-i18n="hero.stat2">Quality Gate</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-value">Open Source</span>
+                    <span class="hero__stat-label" data-i18n="hero.stat3">GitHub-Based Tools</span>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge" data-i18n="feat.badge">Core Features</span>
+                <h2 class="section__title" data-i18n-html="feat.title">Three pillars of the<br>TI developer experience.</h2>
+                <p class="section__subtitle" data-i18n="feat.subtitle">
+                    From interactive API exploration to contract testing and automated 
+                    quality gates — everything you need to build reliable TI integrations.
+                </p>
+            </div>
+
+            <div class="features__grid">
+                <!-- API Portal Card -->
+                <a href="https://portal.developer.gematik.solutions" class="feature-card feature-card--primary" target="_blank" rel="noopener">
+                    <div class="feature-card__icon">
+                        <img src="assets/svg/feature-api-portal-icon.svg" alt="" width="48" height="48" loading="lazy">
+                    </div>
+                    <div class="feature-card__content">
+                        <h3 class="feature-card__title" data-i18n="feat.api.title">API Portal</h3>
+                        <p class="feature-card__description" data-i18n="feat.api.desc">
+                            Explore the VSDM2 API with interactive documentation powered by SwaggerHub.
+                            Try endpoints directly in the browser, use the built-in mock server, 
+                            and generate client code in your preferred language.
+                        </p>
+                        <ul class="feature-card__list" data-i18n-html="feat.api.list">
+                            <li>Interactive API docs with "Try It Out"</li>
+                            <li>Mock Server (Prism-based) for simulated responses</li>
+                            <li>API Catalog &amp; Discovery</li>
+                            <li>SDK / Code Generation (Java, C#, Go, Python, …)</li>
+                            <li>OpenAPI spec downloads (with &amp; without ZETA)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card__cta">
+                        <span data-i18n="feat.api.cta">Open API Portal</span>
+                        <img src="assets/svg/feature-api-portal-cta-arrow.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                </a>
+
+                <!-- Contract Testing Card -->
+                <div class="feature-card feature-card--secondary" data-feature="contract-testing" data-feature-toggle="contract-testing" role="button" tabindex="0">
+                    <div class="feature-card__icon">
+                        <img src="assets/svg/feature-contract-testing-icon.svg" alt="" width="48" height="48" loading="lazy">
+                    </div>
+                    <div class="feature-card__content">
+                        <h3 class="feature-card__title" data-i18n="feat.ct.title">Contract Testing</h3>
+                        <p class="feature-card__description" data-i18n="feat.ct.desc">
+                            Validate your integrations against official gematik API contracts using Pact.
+                            Publish your consumer contracts to our PactFlow broker and get 
+                            automated compatibility verification against the provider.
+                        </p>
+                        <ul class="feature-card__list" data-i18n-html="feat.ct.list">
+                            <li>Bidirectional Contract Testing (Pact)</li>
+                            <li>CI/CD pipeline integration</li>
+                            <li>Automated compliance &amp; breaking change detection</li>
+                            <li>Detailed compatibility reports</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card__cta">
+                        <span data-i18n="feat.ct.cta.card">Learn more</span>
+                        <img src="assets/svg/feature-contract-testing-cta-arrow.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- API Lifecycle Managment Card -->
+                <div class="feature-card feature-card--tertiary" data-feature="apiops" data-feature-toggle="apiops" role="button" tabindex="0">
+                    <div class="feature-card__icon">
+                        <img src="assets/svg/feature-api-lifecycle-icon.svg" alt="" width="48" height="48" loading="lazy">
+                    </div>
+                    <div class="feature-card__content">
+                        <h3 class="feature-card__title" data-i18n="feat.ops.title">API Lifecycle Managment</h3>
+                        <p class="feature-card__description" data-i18n="feat.ops.desc">
+                            Behind the scenes, our automated API lifecycle pipeline ensures every 
+                            published API meets strict quality standards — from FHIR source to 
+                            validated OpenAPI specification.
+                        </p>
+                        <ul class="feature-card__list" data-i18n-html="feat.ops.list">
+                            <li>FHIR → OpenAPI generation (custom tooling)</li>
+                            <li>OpenAPI Overlays for environment configs</li>
+                            <li>Automated linting (Spectral) &amp; validation</li>
+                            <li>Continuous publishing to API Portal</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card__cta">
+                        <span data-i18n="feat.ops.cta.card">Learn more</span>
+                        <img src="assets/svg/feature-api-lifecycle-cta-arrow.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Detail Panels -->
+            <div class="feature-detail" id="feature-detail-contract-testing" aria-hidden="true">
+                <button class="feature-detail__close" aria-label="Close detail panel">&times;</button>
+                <h3 class="feature-detail__title" data-i18n="feat.ct.detail.title">Contract Testing — Deep Dive</h3>
+                <div class="contract-diagram" aria-hidden="true">
+                    <img src="assets/svg/detail-contract-testing-diagram.svg" alt="" class="contract-diagram__svg" data-i18n-src="feat.ct.detail.diagram.src" loading="lazy">
+                </div>
+                <div class="contract-pilot-info" role="note" aria-label="Pilot context for contract testing">
+                    <p class="contract-pilot-info__title" data-i18n="feat.ct.detail.pilot.title">Pilot context (VSDM2)</p>
+                    <p class="contract-pilot-info__text" data-i18n-html="feat.ct.detail.pilot.text">
+                        We are currently running a VSDM2 pilot for contract testing. In this setup, the
+                        <strong>Provider</strong> is the <strong>VSDM2 Fachdienst</strong> and the
+                        <strong>Consumer</strong> is the <strong>Primärsystem</strong>.
+                    </p>
+                </div>
+                <p class="feature-detail__text" data-i18n="feat.ct.detail.text1">
+                    Contract testing with Pact ensures that your consumer application and the gematik provider 
+                    APIs stay compatible throughout the development lifecycle. Instead of relying on fragile 
+                    end-to-end tests, you define explicit contracts that describe the interactions your 
+                    application expects. These contracts are then verified against the actual provider 
+                    implementation on our PactFlow broker.
+                </p>
+                <p class="feature-detail__text" data-i18n="feat.ct.detail.text2">
+                    The workflow integrates seamlessly into your CI/CD pipeline. After writing Pact tests 
+                    locally, you publish the generated contract files to our broker using API tokens. 
+                    The broker automatically runs verification against the provider and reports back 
+                    whether your consumer contract is compatible. Breaking changes are detected before 
+                    they reach production, giving you confidence in every deployment.
+                </p>
+                <div class="feature-detail__actions">
+                    <a href="https://gematik.pactflow.io/pacticipants" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ct.detail.cta">Explore Contract Testing</a>
+                </div>
+            </div>
+
+            <div class="feature-detail" id="feature-detail-apiops" aria-hidden="true">
+                <button class="feature-detail__close" aria-label="Close detail panel">&times;</button>
+                <h3 class="feature-detail__title" data-i18n="feat.ops.detail.title">API Lifecycle Managment — Deep Dive</h3>
+
+                <!-- Interactive API Lifecycle Diagram -->
+                <div class="lifecycle-container">
+                    <div class="lifecycle-diagram" id="lifecycle-diagram">
+                        <img src="assets/svg/detail-api-lifecycle-diagram.svg" alt="" class="lifecycle-diagram__svg" aria-hidden="true" loading="lazy">
+
+                        <!-- Clickable bubbles (overlay div ensures clicks work in Safari) -->
+                        <div class="lifecycle-overlay">
+                            <button class="lifecycle-bubble" data-lifecycle="implementation" style="top: 2%; left: 31%; transform: translateX(-50%);" data-i18n="lifecycle.implementation.title">Implementation</button>
+                            <button class="lifecycle-bubble" data-lifecycle="testing" style="top: 40%; left: 3%;" data-i18n="lifecycle.testing.title">Testing</button>
+                            <button class="lifecycle-bubble" data-lifecycle="iteration" style="bottom: -7%; left: 35%; transform: translateX(-50%);" data-i18n="lifecycle.iteration.title">Iteration</button>
+                            <button class="lifecycle-bubble" data-lifecycle="design" style="top: 2%; left: 78.5%; transform: translateX(-50%);" data-i18n="lifecycle.design.title">Design</button>
+                            <button class="lifecycle-bubble" data-lifecycle="validate" style="top: 40%; right: -3%;" data-i18n="lifecycle.validate.title">Validate</button>
+                            <button class="lifecycle-bubble" data-lifecycle="publish" style="bottom: -7%; left: 71.2%; transform: translateX(-50%);" data-i18n="lifecycle.publish.title">Publish</button>
+                            <button class="lifecycle-bubble lifecycle-bubble--center" data-lifecycle="devportal" style="top: 55%; left: 53.5%; transform: translate(-50%, -50%);" data-i18n="lifecycle.devportal.title">Dev-Portal</button>
+                        </div>
+                    </div>
+
+                    <!-- Detail panel (shown when a stage is clicked) -->
+                    <div class="lifecycle-detail" id="lifecycle-detail" aria-hidden="true">
+                        <button class="lifecycle-detail__close" aria-label="Close detail panel">&times;</button>
+                        <div class="lifecycle-detail__body">
+                            <h4 class="lifecycle-detail__title"></h4>
+                            <p class="lifecycle-detail__desc"></p>
+                            <div class="lifecycle-detail__steps"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="feature-detail__text" data-i18n="feat.ops.detail.text1">
+                    The API Lifecycle Managment is the backbone of our API quality assurance process. Starting from 
+                    FHIR StructureDefinitions, our custom tooling generates OpenAPI specifications that 
+                    accurately reflect the underlying data models. These specs are then enriched with 
+                    environment-specific overlays for REF, TU, and PU server configurations, ensuring 
+                    that each deployment target has the correct base URLs and authentication parameters.
+                </p>
+                <p class="feature-detail__text" data-i18n="feat.ops.detail.text2">
+                    Every generated specification passes through automated linting with Spectral rules 
+                    tailored to gematik's API design guidelines. The pipeline validates structural 
+                    correctness, naming conventions, and security scheme definitions. Once all quality 
+                    gates pass, the specification is automatically published to the API Portal, keeping 
+                    the documentation always in sync with the latest FHIR profiles.
+                </p>
+                <div class="feature-detail__actions">
+                    <a href="https://github.com/gematik" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ops.detail.cta">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started / Introduction Section -->
+    <section class="section getting-started" id="getting-started">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge" data-i18n="gs.badge">Getting Started</span>
+                <h2 class="section__title" data-i18n="gs.title">How to use the Developer Portal</h2>
+                <p class="section__subtitle" data-i18n="gs.subtitle">
+                    This pilot currently features the VSDM 2.0 API. More APIs will be added 
+                    based on your feedback. Here's how to get the most out of each tool.
+                </p>
+            </div>
+
+            <div class="getting-started__grid">
+                <div class="getting-started__card">
+                    <div class="getting-started__step">1</div>
+                    <div class="getting-started__card-content">
+                    <h3 class="getting-started__title" data-i18n="gs.card1.title">Explore the API Portal</h3>
+                    <p class="getting-started__text" data-i18n="gs.card1.text">                        The API Portal contains all API descriptions generated and validated by our toolchain. 
+                        Currently it features the VSDM 2.0 pilot project. The portal provides:
+                    </p>
+                    <ul class="getting-started__list" data-i18n-html="gs.card1.list">
+                        <li>A <strong>SwaggerHub Auto Mocking Server</strong> that simulates VSDM2 API responses</li>
+                        <li>Server environments for REF, TU and PU (currently listed as reference only)</li>
+                        <li><strong>Code samples</strong> in Java, C#, Go, JavaScript, PHP, Python, Scala, Swift and more</li>
+                        <li>Multiple <strong>example responses</strong> for each endpoint</li>
+                    </ul>
+                    <p class="getting-started__text" data-i18n-html="gs.card1.text2">
+                        The code generator has been tested for Java, C# and TypeScript. You can also integrate 
+                        the <a href="https://github.com/OpenAPITools/openapi-generator" target="_blank" rel="noopener">openapi-generator</a> 
+                        into your own codebase to generate HTTP clients and model classes. 
+                        This reduces manual implementation effort on the client side and ensures consistent API usage. 
+                        If you experience issues or would like us to test additional languages, please let us know!
+                    </p>
+                    </div>
+                </div>
+
+                <div class="getting-started__card">
+                    <div class="getting-started__step">2</div>
+                    <div class="getting-started__card-content">
+                    <h3 class="getting-started__title" data-i18n="gs.card2.title">Download OpenAPI Specifications</h3>
+                    <p class="getting-started__text" data-i18n="gs.card2.text">
+                        Every time a new VSDM2 FHIR specification is published, our CI/CD pipeline 
+                        automatically generates an updated OpenAPI specification. Two variants are available:
+                    </p>
+                    <div class="getting-started__variants">
+                        <div class="getting-started__variant">
+                            <h4 data-i18n="gs.card2.v1.title">VSDM2 with ZETA</h4>
+                            <p data-i18n="gs.card2.v1.text">The ZETA-Guard to Resource Server interface, including all HTTP headers required for 
+                            access via the ZETA Guard. Use this for understanding the full TI 2.0 interface requirements 
+                            and building API routing without the ZETA SDK.</p>
+                            <a href="https://portal.developer.gematik.solutions/vsdm20/docs/vsdm-2-0-client-to-zeta-guard-interface-v-1-0-0-rc6-202602261656" class="getting-started__link" target="_blank" rel="noopener" data-i18n="gs.card2.v1.link">View on API Portal →</a>
+                        </div>
+                        <div class="getting-started__variant">
+                            <h4 data-i18n="gs.card2.v2.title">VSDM2 without ZETA</h4>
+                            <p data-i18n="gs.card2.v2.text">The pure Client to ZETA-Guard interface without the ZETA overlay. 
+                            Use this for preparing and validating payloads to be processed by the ZETA SDK.</p>
+                            <a href="https://portal.developer.gematik.solutions/vsdm20/docs/vsdm-2-0-zeta-guard-to-resource-server-interface-v-1-0-0-rc6-202602261656" class="getting-started__link" target="_blank" rel="noopener" data-i18n="gs.card2.v2.link">View on API Portal →</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="getting-started__card">
+                    <div class="getting-started__step">3</div>
+                    <div class="getting-started__card-content">
+                    <h3 class="getting-started__title" data-i18n="gs.card3.title">Set Up Contract Testing</h3>
+                    <p class="getting-started__text" data-i18n-html="gs.card3.text">
+                        Use <a href="https://docs.pact.io/" target="_blank" rel="noopener">Pact</a>, 
+                        an open-source contract testing framework, to validate service interactions 
+                        without relying on complex end-to-end tests. Recommended workflow:
+                    </p>
+                    <ol class="getting-started__steps-list" data-i18n-html="gs.card3.steps">
+                        <li>Verify your tech stack supports Pact</li>
+                        <li>Download the OpenAPI spec and use it as the basis for a mock server</li>
+                        <li>Write Pact tests covering your expected interactions</li>
+                        <li>Generate a Pact file (pact.json) and publish it to our broker</li>
+                    </ol>
+                    <p class="getting-started__text" data-i18n-html="gs.card3.text2">
+                        See the <a href="https://github.com/gematik/ti2.0-testhub/tree/main/client/vsdm-client-simservice-java/src/test/java/de/gematik/ti20/simsvc/client/pact" target="_blank" rel="noopener">Java example implementation</a> 
+                        and the <a href="https://github.com/gematik/ti2.0-testhub/blob/main/client/vsdm-client-simservice-java/src/test/java/de/gematik/ti20/simsvc/client/service/VsdmClientServicePactTest.java" target="_blank" rel="noopener">VsdmClientServicePactTest</a> 
+                        in our TestHub for a consumer-side Pact test reference.
+                    </p>
+
+                    <h4 class="getting-started__subtitle" data-i18n="gs.card3.broker.title">Broker Registration</h4>
+                    <p class="getting-started__text" data-i18n="gs.card3.broker.text">
+                        Contact us with your desired application name for the Pact Broker. 
+                        We will provide you with two API tokens: a Read/Write token for your CI/CD pipelines 
+                        and a Read-Only token for reports and dashboards.
+                    </p>
+                    <div class="getting-started__code-wrapper">
+                    <button class="code-copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <img src="assets/svg/code-copy-icon-broker-registration.svg" alt="" width="16" height="16" loading="lazy">
+                    </button>
+                    <pre class="getting-started__code"><code>CONTRACT_BROKER_URL=https://gematik.pactflow.io
+APP_NAME=my-application-name</code></pre>
+                    </div>
+
+                    <h4 class="getting-started__subtitle" data-i18n="gs.card3.publish.title">Publish Contract</h4>
+                    <p class="getting-started__text" data-i18n-html="gs.card3.publish.text">
+                        Upload your generated <code>pact.json</code> (Base64-encoded) using the following parameters. 
+                        The possible values for <code>PROVIDER_APPLICATION_NAME</code> are:
+                    </p>
+                    <ul class="getting-started__list" data-i18n-html="gs.card3.publish.providers">
+                        <li><code>vsdm2-zeta-gematik-reference</code> — VSDM2 with ZETA overlay</li>
+                        <li><code>vsdm2-gematik-reference</code> — VSDM2 without ZETA overlay</li>
+                    </ul>
+                    <div class="getting-started__code-wrapper">
+                    <button class="code-copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <img src="assets/svg/code-copy-icon-publish-contract.svg" alt="" width="16" height="16" loading="lazy">
+                    </button>
+                    <pre class="getting-started__code"><code>APP_VERSION=v1.0.0                              # use Semantic Versioning
+APP_BRANCH=main                                  # optional
+APP_BUILD_URL=https://ci.example.org/build/123   # optional
+PROVIDER_APPLICATION_NAME=vsdm2-zeta-gematik-reference</code></pre>
+                    </div>
+                    <p class="getting-started__text" data-i18n="gs.card3.publish.text2">
+                        The generated pact.json file must be Base64-encoded before uploading:
+                    </p>
+                    <div class="getting-started__code-wrapper">
+                    <button class="code-copy-btn" aria-label="Copy to clipboard" title="Copy">
+                        <img src="assets/svg/code-copy-icon-base64-encode.svg" alt="" width="16" height="16" loading="lazy">
+                    </button>
+                    <pre class="getting-started__code"><code>PACT_B64=$(base64 -w 0 pact.json)
+
+curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/hal+json" \
+  -H "Authorization: Bearer &lt;API_KEY_READ_WRITE&gt;" \
+  -d '{
+    "pacticipantName": "'$APP_NAME'",
+    "pacticipantVersionNumber": "v1.0.0",
+    "branch": "main",
+    "contracts": [{
+      "consumerName": "'$APP_NAME'",
+      "providerName": "vsdm2-zeta-gematik-reference",
+      "content": "'$PACT_B64'",
+      "contentType": "application/json",
+      "specification": "pact"
+    }]
+  }'</code></pre>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="getting-started__feedback">
+                <p data-i18n-html="gs.feedback">
+                    <strong>We value your feedback!</strong> This portal is in its pilot phase. 
+                    If you encounter issues, need additional language support for code generation, 
+                    or have suggestions for improvement, please let us know.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section resources" id="resources">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge" data-i18n="res.badge">Resources</span>
+                <h2 class="section__title" data-i18n="res.title">Everything at your fingertips.</h2>
+                <p class="section__subtitle" data-i18n="res.subtitle">
+                    From specifications to code examples — find all the resources 
+                    you need in one place.
+                </p>
+            </div>
+
+            <div class="resources__grid">
+                <a href="https://gematik.github.io/universal/index.html" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--github">
+                        <img src="assets/svg/resource-github-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.github.title">Open Source</h3>
+                    <p class="resource-card__description" data-i18n="res.github.desc">Explore our open source repositories organized by category — from reference implementations to testing tools.</p>
+                    <span class="resource-card__link" data-i18n="res.github.link">Explore repositories →</span>
+                </a>
+
+                <a href="https://gemspec.gematik.de/" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--specs">
+                        <img src="assets/svg/resource-gemspec-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.specs.title">gemSpec Pages</h3>
+                    <p class="resource-card__description" data-i18n="res.specs.desc">Specifications, guidelines, concepts, profiles, implementation guides, and draft publications for the TI.</p>
+                    <span class="resource-card__link">gemspec.gematik.de →</span>
+                </a>
+
+                 <a href="https://simplifier.net/organization/gematik/~projects" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--simplifier">
+                        <img src="assets/svg/resource-simplifier-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.simplifier.title">FHIR Profiles</h3>
+                    <p class="resource-card__description" data-i18n="res.simplifier.desc">FHIR profiles, packages, and project specifications hosted on Simplifier.net.</p>
+                    <span class="resource-card__link" data-i18n="res.simplifier.link">View on Simplifier →</span>
+                </a>
+
+                <a href="https://wiki.gematik.de/spaces/RUAAS/pages/433732872/RU+as+a+Service" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--ru">
+                        <img src="assets/svg/resource-ru-service-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.ru.title">RU as a Service</h3>
+                    <p class="resource-card__description" data-i18n="res.ru.desc">Access the reference environment (RU) for testing your integrations.</p>
+                    <span class="resource-card__link" data-i18n="res.ru.link">Learn more →</span>
+                </a>
+
+                <a href="https://www.gemmunity.de/community" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--community">
+                        <img src="assets/svg/resource-community-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.forum.title">gemmunity Forum</h3>
+                    <p class="resource-card__description" data-i18n="res.forum.desc">Connect with developers, ask questions, and share your experiences.</p>
+                    <span class="resource-card__link">gemmunity.de →</span>
+                </a>
+
+                <a href="https://code.gematik.de" class="resource-card" target="_blank" rel="noopener">
+                    <div class="resource-card__icon resource-card__icon--blog">
+                        <img src="assets/svg/resource-blog-news-icon.svg" alt="" width="24" height="24" loading="lazy">
+                    </div>
+                    <h3 class="resource-card__title" data-i18n="res.blog.title">Tech Blog</h3>
+                    <p class="resource-card__description" data-i18n="res.blog.desc">Technical deep dives, engineering insights, and behind-the-scenes from gematik.</p>
+                    <span class="resource-card__link" data-i18n="res.blog.link">Read the blog →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Resource Guide Section -->
+    <section class="section project-guide" id="project-guide">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge" data-i18n="project.badge">Project Resources</span>
+                <h2 class="section__title" data-i18n="project.title">Where to find Project Resources</h2>
+                <p class="section__subtitle" data-i18n="project.subtitle">
+                    Find FHIR profiles, API documentation, and specifications for the projects relevant to the VSDM2.0 pilot project.
+                    Use this table to jump directly to the right place.
+                </p>
+            </div>
+
+            <div class="project-guide__table-wrapper">
+                <table class="project-guide__table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="project.col.project">Project</th>
+                            <th data-i18n="project.col.docs">IG / API Docs</th>
+                            <th data-i18n="project.col.profiles">FHIR Profiles (Packages)</th>
+                            <th data-i18n="project.col.spec">Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Add more projects as they are onboarded 
+                        <tr>
+                            <td><strong>ePA</strong></td>
+                            <td><a href="https://gemspec.gematik.de/fhir/ig/" target="_blank" rel="noopener">gemSpec IG overview</a></td>
+                            <td>
+                                <a href="https://simplifier.net/epa-basic" target="_blank" rel="noopener">ePA Basic</a>,
+                                <a href="https://simplifier.net/epa-medication" target="_blank" rel="noopener">ePA Medication</a>,
+                                <a href="https://simplifier.net/epa-mhd" target="_blank" rel="noopener">ePA MHD</a>
+                            </td>
+                            <td><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">gemSpec</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-Rezept</strong></td>
+                            <td><a href="https://github.com/gematik/api-erp" target="_blank" rel="noopener">api-erp (GitHub)</a></td>
+                            <td><a href="https://simplifier.net/erezept-workflow" target="_blank" rel="noopener">eRezept-Workflow</a></td>
+                            <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_eRp/latest/" target="_blank" rel="noopener">gemSpec_FD_eRp</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ISiK</strong></td>
+                            <td><a href="https://simplifier.net/guide/isik-basis-stufe-5" target="_blank" rel="noopener">Simplifier Guides</a></td>
+                            <td><a href="https://simplifier.net/isik-stufe-5" target="_blank" rel="noopener">ISiK Stufe 5</a></td>
+                            <td><span class="project-guide__none">—</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>VZD</strong></td>
+                            <td><a href="https://github.com/gematik/api-vzd" target="_blank" rel="noopener">api-vzd (GitHub)</a></td>
+                            <td><a href="https://simplifier.net/vzd-fhir-directory" target="_blank" rel="noopener">VZD-FHIR-Directory</a></td>
+                            <td><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">gemSpec</a></td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td><strong>Versichertenstammdatenmanagement 2.0 (VSDM 2.0)</strong></td>
+                            <td><a href="https://github.com/gematik/spec-VSDM2" target="_blank" rel="noopener">spec-VSDM2 (GitHub)</a></td>
+                            <td><a href="https://simplifier.net/vsdm2" target="_blank" rel="noopener">VSDM2</a></td>
+                            <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_VSDM_2/latest/" target="_blank" rel="noopener">gemSpec_VSDM_2</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zero Trust Access (ZETA)</strong></td>
+                            <td><a href="https://github.com/gematik/zeta" target="_blank" rel="noopener">zeta (GitHub)</a></td>
+                            <td><span class="project-guide__none">—</span></td>
+                            <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_ZETA/latest/" target="_blank" rel="noopener">gemSpec ZETA</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proof of Patient Presence (PoPP)-Service</strong></td>
+                            <td><a href="https://github.com/gematik/api-popp" target="_blank" rel="noopener">api-popp-service (GitHub)</a></td>
+                            <td><span class="project-guide__none">—</span></td>
+                            <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_PoPP_Service/latest/" target="_blank" rel="noopener">gemSpec_PoPP_Service</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Links Section -->
+    <section class="section community" id="community">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__badge" data-i18n="eco.badge">Ecosystem</span>
+                <h2 class="section__title" data-i18n="eco.title">Part of a bigger ecosystem.</h2>
+                <p class="section__subtitle" data-i18n="eco.subtitle">
+                    The gematik developer ecosystem extends across multiple platforms. 
+                    Here's where to find what you need.
+                </p>
+            </div>
+
+            <div class="ecosystem__grid">
+                <a href="https://www.gematik.de/" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-gematik-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">gematik.de</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.gematik.desc">General information about gematik and the TI</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-gematik-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+
+                <a href="https://fachportal.gematik.de/" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-fachportal-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">Fachportal</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.fachportal.desc">Technical information and services for the TI</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-fachportal-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+
+                <a href="https://www.ina.gematik.de/startseite" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-ina-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">INA</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.ina.desc">Interoperability navigator for digital medicine</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-ina-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+
+                <a href="https://fachportal.gematik.de/ti-status" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-ti-status-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">TI Status</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.status.desc">Live status and monitoring of all TI services</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-ti-status-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+
+                <a href="https://fachportal.gematik.de/telematikinfrastruktur/roadmap" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-roadmap-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">Roadmap</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.roadmap.desc">Upcoming milestones and planned TI developments</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-roadmap-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+
+                <a href="https://fachportal.gematik.de/newsletter" class="ecosystem-link" target="_blank" rel="noopener">
+                    <div class="ecosystem-link__icon">
+                        <img src="assets/svg/ecosystem-newsletter-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </div>
+                    <div>
+                        <h4 class="ecosystem-link__title">Newsletter</h4>
+                        <p class="ecosystem-link__description" data-i18n="eco.newsletter.desc">Subscribe to the gematik newsletter for updates</p>
+                    </div>
+                    <img src="assets/svg/ecosystem-newsletter-external-arrow.svg" alt="" class="ecosystem-link__arrow" width="16" height="16" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta__card">
+                <div class="cta__bg">
+                    <div class="cta__gradient"></div>
+                </div>
+                <div class="cta__content">
+                    <h2 class="cta__title" data-i18n="cta.title">Ready to start building?</h2>
+                    <p class="cta__subtitle" data-i18n="cta.subtitle">
+                        Dive into the Developer Portal and start integrating with the
+                        Telematikinfrastruktur today. Access APIs, run contract tests, 
+                        and ship with confidence.
+                    </p>
+                    <div class="cta__actions">
+                        <a href="https://portal.developer.gematik.solutions" class="btn btn--white btn--lg" target="_blank" rel="noopener">
+                            <span data-i18n="cta.btn1">Open API Portal</span>
+                            <img src="assets/svg/cta-open-portal-arrow.svg" alt="" width="20" height="20" loading="lazy">
+                        </a>
+                        <a href="https://github.com/gematik" class="btn btn--ghost btn--lg" target="_blank" rel="noopener">
+                            <span data-i18n="cta.btn2">View on GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo" aria-label="gematik Developer Portal Home">
+                        <span>gematik Developer Portal</span>
+                    </a>
+                    <p class="footer__tagline" data-i18n="footer.tagline">Building the digital health infrastructure of tomorrow.</p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4 class="footer__column-title" data-i18n="footer.platform">Platform</h4>
+                        <a href="https://portal.developer.gematik.solutions" target="_blank" rel="noopener">API Portal</a>
+                        <a href="https://portal.developer.gematik.solutions" target="_blank" rel="noopener">Contract Testing</a>
+                        
+                    </div>
+                    <div class="footer__column">
+                        <h4 class="footer__column-title" data-i18n="footer.resources">Resources</h4>
+                        <a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">gemSpec Pages</a>
+                        <a href="https://gematik.github.io/universal/index.html" target="_blank" rel="noopener">Open Source</a>
+                        <a href="https://simplifier.net/organization/gematik/~projects" target="_blank" rel="noopener">FHIR Profiles</a>
+                        <a href="https://fachportal.gematik.de/faq" target="_blank" rel="noopener">FAQ</a>
+                        <a href="https://fachportal.gematik.de/glossar" target="_blank" rel="noopener">Glossary</a>
+                    </div>
+                    <div class="footer__column">
+                        <h4 class="footer__column-title" data-i18n="footer.community">Community</h4>
+                        <a href="https://www.gemmunity.de/community" target="_blank" rel="noopener">gemmunity Forum</a>
+                        <a href="https://fachportal.gematik.de/veranstaltungen" target="_blank" rel="noopener">Events</a>
+                        <a href="https://code.gematik.de" target="_blank" rel="noopener">Tech Blog</a>
+                        <a href="https://fachportal.gematik.de/newsletter" target="_blank" rel="noopener">Newsletter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__social">
+                    <a href="https://github.com/gematik" target="_blank" rel="noopener" aria-label="GitHub">
+                        <img src="assets/svg/footer-social-github-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </a>
+                    <a href="https://www.linkedin.com/company/gematik/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <img src="assets/svg/footer-social-linkedin-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </a>
+                    <a href="https://x.com/gematik1" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                        <img src="assets/svg/footer-social-x-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCkKjrzwhrb8JcZxm8LPc_pg" target="_blank" rel="noopener" aria-label="YouTube">
+                        <img src="assets/svg/footer-social-youtube-icon.svg" alt="" width="20" height="20" loading="lazy">
+                    </a>
+                </div>
+                <p class="footer__copyright" data-i18n-html="footer.copyright">&copy; 2026 gematik GmbH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

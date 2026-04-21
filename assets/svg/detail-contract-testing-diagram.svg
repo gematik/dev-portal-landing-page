@@ -1,0 +1,32 @@
+<svg class="contract-diagram__svg" viewBox="0 0 360 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="6" width="100" height="118" rx="16" fill="white" stroke="#000E52" stroke-width="2"/>
+                        <rect x="128" y="6" width="104" height="158" rx="16" fill="white" stroke="#00FF64" stroke-width="3"/>
+                        <rect x="256" y="6" width="100" height="118" rx="16" fill="white" stroke="#000E52" stroke-width="2"/>
+
+                        <text x="54" y="36" text-anchor="middle" fill="#000E52" font-size="13" font-family="Inter, sans-serif" font-weight="700">Provider</text>
+                        <text x="180" y="36" text-anchor="middle" fill="#000E52" font-size="13" font-family="Inter, sans-serif" font-weight="700">Broker</text>
+                        <text x="306" y="36" text-anchor="middle" fill="#000E52" font-size="13" font-family="Inter, sans-serif" font-weight="700">Consumer</text>
+
+                        <rect x="18" y="72" width="72" height="34" rx="8" fill="#000E52"/>
+                        <text x="54" y="93" text-anchor="middle" fill="white" font-size="10.5" font-family="Inter, sans-serif" font-weight="600">REST API</text>
+
+                        <rect x="148" y="52" width="64" height="34" rx="8" fill="#F2F4F7" stroke="#000E52" stroke-width="1.5"/>
+                        <text x="180" y="73" text-anchor="middle" fill="#000E52" font-size="10.5" font-family="Inter, sans-serif" font-weight="600">OpenAPI</text>
+                        <rect x="148" y="96" width="64" height="34" rx="8" fill="#F2F4F7" stroke="#000E52" stroke-width="1.5"/>
+                        <text x="180" y="117" text-anchor="middle" fill="#000E52" font-size="10.5" font-family="Inter, sans-serif" font-weight="600">Pact</text>
+
+                        <rect x="270" y="72" width="72" height="34" rx="8" fill="#000E52"/>
+                        <text x="306" y="92" text-anchor="middle" fill="white" font-size="10.5" font-family="Inter, sans-serif" font-weight="600">Pact Test</text>
+
+                        <path d="M90 69H148" stroke="#000E52" stroke-width="2"/>
+                        <path d="M141 64L148 69L141 74" stroke="#000E52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M212 69H270" stroke="#000E52" stroke-width="2"/>
+                        <path d="M263 64L270 69L263 74" stroke="#000E52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M270 113H212" stroke="#000E52" stroke-width="2"/>
+                        <path d="M219 108L212 113L219 118" stroke="#000E52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M148 113H90" stroke="#000E52" stroke-width="2"/>
+                        <path d="M97 108L90 113L97 118" stroke="#000E52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                        <rect x="148" y="136" width="64" height="20" rx="10" fill="#000E52"/>
+                        <text x="180" y="150" text-anchor="middle" fill="white" font-size="9.5" font-family="Inter, sans-serif" font-weight="600">Verification</text>
+                    </svg>

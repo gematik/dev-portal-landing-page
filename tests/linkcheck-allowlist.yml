@@ -1,0 +1,22 @@
+# URLs intentionally excluded from HEAD check failures.
+# This file supports inline comments and grouping by purpose.
+allowlist:
+  # Placeholder/sample URLs from docs
+  - https://ci.example.org/build/123
+
+  # HEAD often not representative on bare font domains
+  - https://fonts.googleapis.com
+  - https://fonts.gstatic.com
+
+  # Known inaccessible or intentionally restricted URLs
+  - https://gematik.github.io/landing-page/
+  - https://gematik.survalyzer.eu/FP_Nutzer_kurz?urlVar01=FPWerbebanner
+  - https://mio.kbv.de/display/DIGA1X1X0
+  - https://gematik.pactflow.io
+  - https://gematik.pactflow.io/pacticipants
+  - https://www.gematik.de/newsroom/news
+  - https://x.com/gematik1
+  - https://www.xing.com/pages/gematik
+
+  # Local development only
+  - http://localhost:8000
