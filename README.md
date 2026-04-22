@@ -4,7 +4,7 @@
 
 The landing page for the gematik Developer Portal, providing a central hub for developers working with the Telematikinfrastruktur (TI).
 
-**Live:** [https://gematik.github.io/landing-page/](https://gematik.github.io/landing-page/)
+**Live:** [https://developer.gematik.solutions](https://developer.gematik.solutions)
 
 ## Overview
 
@@ -63,7 +63,7 @@ Run the link check script to verify all external URLs in the repository.
 The script sends `HEAD` requests only.
 
 ```bash
-python tests/check_links.py
+python3 tests/check_links.py
 ```
 
 Optional flags:

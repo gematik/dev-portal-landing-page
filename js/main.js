@@ -176,6 +176,15 @@
             if (!panel) return;
 
             var isOpen = panel.classList.contains('feature-detail--open');
+
+            // Find any currently open panel before closing
+            var openPanel = null;
+            featureDetails.forEach(function (p) {
+                if (p.classList.contains('feature-detail--open') && p !== panel) {
+                    openPanel = p;
+                }
+            });
+
             closeAllDetails();
             resetPanelPositions();
 
@@ -187,9 +196,26 @@
                 panel.classList.add('feature-detail--open');
                 panel.setAttribute('aria-hidden', 'false');
                 card.classList.add('feature-card--active');
-                setTimeout(function () {
+
+                function doScroll() {
                     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
+                }
+
+                if (openPanel) {
+                    // Wait for the closing panel's collapse transition to finish
+                    var scrolled = false;
+                    function onTransitionDone() {
+                        if (scrolled) return;
+                        scrolled = true;
+                        openPanel.removeEventListener('transitionend', onTransitionDone);
+                        doScroll();
+                    }
+                    openPanel.addEventListener('transitionend', onTransitionDone);
+                    // Safety fallback in case transitionend doesn't fire
+                    setTimeout(onTransitionDone, 500);
+                } else {
+                    setTimeout(doScroll, 100);
+                }
             }
         });
 
@@ -241,7 +267,8 @@
                 text: t('lifecycle.validate.text'),
                 type: 'steps',
                 steps: (t('lifecycle.validate.steps') || '').split('|').map(function(label, i) {
-                    return { label: label, fhirOnly: validateFhirFlags[i] || false };
+                    var descs = (t('lifecycle.validate.steps.desc') || '').split('|');
+                    return { label: label, fhirOnly: validateFhirFlags[i] || false, desc: descs[i] || '' };
                 }),
                 result: t('lifecycle.validate.result')
             },
@@ -268,7 +295,8 @@
                 steps: (t('lifecycle.testing.steps') || '').split('|').map(function(label) {
                     return { label: label, fhirOnly: false };
                 }),
-                result: t('lifecycle.testing.result')
+                result: t('lifecycle.testing.result'),
+                action: { label: t('lifecycle.testing.action'), target: 'contract-testing' }
             },
             iteration: {
                 title: t('lifecycle.iteration.title') || 'Iteration',
@@ -305,6 +333,7 @@
                 html += '<span class="pipeline-item__label">' + step.label + '</span>';
                 if (step.fhirOnly) html += '<span class="pipeline-item__badge">FHIR</span>';
                 html += '</div>';
+                if (step.desc) html += '<div class="pipeline-item__desc">' + step.desc + '</div>';
                 html += '</div>';
             });
             if (desc.result) {
@@ -329,6 +358,9 @@
                 html += '</div>';
             }
             html += '</div>';
+        }
+        if (desc.action) {
+            html += '<a href="#" class="lifecycle-detail__action" data-feature-target="' + desc.action.target + '">' + desc.action.label + '</a>';
         }
         return html;
     }
@@ -359,6 +391,15 @@
             lifecycleBubbles.forEach(function(b) { b.classList.remove('lifecycle-bubble--active'); });
             bubble.classList.add('lifecycle-bubble--active');
         }
+
+        lifecycleDetail.addEventListener('click', function(e) {
+            var actionLink = e.target.closest('.lifecycle-detail__action');
+            if (!actionLink) return;
+            e.preventDefault();
+            var targetId = actionLink.getAttribute('data-feature-target');
+            var card = document.querySelector('[data-feature-toggle="' + targetId + '"]');
+            if (card) card.click();
+        });
 
         lifecycleBubbles.forEach(function(bubble) {
             bubble.addEventListener('click', function(e) {
@@ -413,6 +454,18 @@
                 e.stopPropagation();
                 closeLifecycleDetail();
             });
+        }
+
+        // Initially open the "design" panel
+        var designBubble = document.querySelector('.lifecycle-bubble[data-lifecycle="design"]');
+        if (designBubble) {
+            var designDesc = lifecycleDescriptions['design'];
+            if (designDesc) {
+                updateDetailContent(designDesc, designBubble);
+                if (container) container.classList.add('lifecycle-container--has-detail');
+                lifecycleDetail.classList.add('lifecycle-detail--visible');
+                lifecycleDetail.setAttribute('aria-hidden', 'false');
+            }
         }
     }
 

@@ -36,11 +36,11 @@
       // Hero
       'hero.badge': 'Developer Portal — Pilot',
       'hero.title': 'Building the future of the<br><span class="hero__title--highlight">TI developer experience.</span>',
-      'hero.subtitle': 'Welcome to the gematik Developer Portal pilot. Currently featuring the VSDM 2.0 API, this portal gives you interactive documentation, a mock server, contract testing, and code generation — everything you need to integrate with the Telematikinfrastruktur. More APIs will follow based on your feedback.',
+      'hero.subtitle': 'Welcome to the gematik Developer Portal pilot. Currently featuring the VSDM 2.0 API, this portal gives you interactive documentation, a mock server, contract testing, and code generation — everything you need to integrate with the Telematikinfrastruktur. The future of this portal depends on your feedback.',
       'hero.stat1': 'VSDM2 — Pilot Phase',
       'hero.stat2': 'Quality Gate',
       'hero.stat3': 'GitHub-Based Tools',
-      'hero.pilot': 'Pilot<br>WIP',
+      'hero.pilot': 'Pilot',
 
       // Feature card CTAs
       'feat.ct.cta.card': 'Learn more',
@@ -100,9 +100,11 @@
       'feat.ct.detail.text2': 'The workflow integrates seamlessly into your CI/CD pipeline. After writing Pact tests locally, you publish the generated contract files to our broker using API tokens. The broker automatically runs verification against the provider and reports back whether your consumer contract is compatible. Breaking changes are detected before they reach production, giving you confidence in every deployment.',
       'feat.ct.detail.cta': 'Explore Contract Testing',
       'feat.ops.detail.title': 'API Lifecycle Management — Deep Dive',
-      'feat.ops.detail.text1': 'The API Lifecycle Management is the backbone of our API quality assurance process. Starting from FHIR StructureDefinitions, our custom tooling generates OpenAPI specifications that accurately reflect the underlying data models. These specs are then enriched with environment-specific overlays for REF, TU, and PU server configurations, ensuring that each deployment target has the correct base URLs and authentication parameters.',
-      'feat.ops.detail.text2': 'Every generated specification passes through automated linting with Spectral rules tailored to gematik\'s API design guidelines. The pipeline validates structural correctness, naming conventions, and security scheme definitions. Once all quality gates pass, the specification is automatically published to the API Portal, keeping the documentation always in sync with the latest FHIR profiles.',
-      'feat.ops.detail.cta': 'View on GitHub',
+      'feat.ops.detail.hint.title': 'Interactive Diagram',
+      'feat.ops.detail.hint.text': 'Click on the lifecycle stages in the diagram below to explore each phase in detail.',
+      'feat.ops.detail.text1': 'The API Lifecycle Managment is the backbone of our API quality assurance process. Starting from specified FHIR resources, our custom tooling generates OpenAPI specifications that accurately reflect the underlying data models. These specs are then enriched with environment-specific overlays for REF, TU, and PU server configurations, ensuring that each deployment target has the correct base URLs and authentication parameters.',
+      'feat.ops.detail.text2': 'Every generated specification passes through automated linting with Spectral rules tailored to gematik\'s API design guidelines. The pipeline validates structural correctness, naming conventions, examples correctness, and security scheme definitions. Once all quality gates pass, the specification is automatically published to the API Portal, keeping the documentation always in sync with the latest FHIR resources.',
+      'feat.ops.detail.cta': 'Open API Portal',
 
       // Lifecycle Diagram Descriptions
       'lifecycle.design.title': 'Design',
@@ -118,14 +120,14 @@
       'lifecycle.iteration.title': 'Iteration',
       'lifecycle.iteration.text': 'Feedback from testing and real-world usage flows back into the design phase. Breaking change detection, compatibility reports, and community input drive continuous improvement of the API specification.',
       'lifecycle.devportal.title': 'Dev-Portal',
-      'lifecycle.devportal.text': 'The Developer Portal is the entry point for all services relevant to developers integrating with the Telematikinfrastruktur. From this landing page, developers access the API Portal (SwaggerHub) for interactive documentation, mock servers, and code generation, as well as the Bidirectional Contract Testing platform (PactFlow) for compatibility verification. Every validated API specification is automatically published here, making it the central interface between gematik\'s internal API lifecycle and the external developer community.',
+      'lifecycle.devportal.text': 'The Developer Portal is the central entry point for developers integrating with the Telematikinfrastruktur. It provides:\n\n• API Portal (SwaggerHub) — interactive documentation, mock servers, and code generation\n• Contract Testing (PactFlow) — bidirectional compatibility verification\n• Automated publishing — every validated API specification is published here automatically\n\nThis makes it the central interface between gematik\'s internal API lifecycle and the external developer community.',
       'lifecycle.validate.steps': 'Input Validation|Convert FHIR to OAS|Overlay Process|Example & Syntax Validation|Linting (Spectral)|Mocking & Code Gen Checks|ZAP API Scan',
+      'lifecycle.validate.steps.desc': 'Check that all FHIR resources and inputs are present and structurally valid.|Transform FHIR StructureDefinitions and CapabilityStatements into an OpenAPI 3.0 specification.|Apply environment-specific overlays (REF, TU, PU) for server URLs and auth parameters.|Verify that all examples conform to schemas and that the spec is syntactically correct.|Enforce gematik API design guidelines using custom Spectral rulesets.|Validate that the spec works with mock servers (Prism) and code generators.|Run OWASP ZAP scans against the generated API for security vulnerabilities.',
       'lifecycle.validate.result': 'Source of Truth Repository',
       'lifecycle.publish.steps': 'Source of Truth Repo|Publishing Script',
       'lifecycle.publish.split': 'API Portal (SwaggerHub)|Contract Testing (PactFlow)',
       'lifecycle.testing.steps': 'Write Pact Consumer Tests against OpenAPI|Generate Pact Contract|Publish to PactFlow Broker',
-      'lifecycle.testing.result': 'Contract Verified \u2713',
-
+      'lifecycle.testing.result': 'Contract Verified \u2713',      'lifecycle.testing.action': 'Learn more about Contract Testing →',
       // Resources
       'res.badge': 'Resources',
       'res.title': 'Everything at your fingertips.',
@@ -141,8 +143,8 @@
       'res.ru.title': 'RU as a Service',
       'res.ru.desc': 'Access the reference environment (RU) for testing your integrations.',
       'res.ru.link': 'Learn more →',
-      'res.forum.title': 'gemmunity Forum',
-      'res.forum.desc': 'Connect with developers, ask questions, and share your experiences.',
+      'res.forum.title': 'Developer Portal Gemmunity Forum',
+      'res.forum.desc': 'Use the (private) developer portal forum in the gemmunity to ask questions, and share your experiences.',
       'res.blog.title': 'Tech Blog',
       'res.blog.desc': 'Technical deep dives, engineering insights, and behind-the-scenes from gematik.',
       'res.blog.link': 'Read the blog →',
@@ -155,8 +157,8 @@
       'project.title': 'Where to find Project Resources',
       'project.subtitle': 'Find FHIR profiles, API documentation, and specifications for the projects relevant to the VSDM2.0 pilot project. Use this table to jump directly to the right place.',
       'project.col.project': 'Project',
-      'project.col.profiles': 'FHIR Profiles (Packages)',
-      'project.col.docs': 'IG / API Docs',
+      'project.col.profiles': 'FHIR Resources',
+      'project.col.docs': 'Impl. Guide / API Docs',
       'project.col.spec': 'Specification',
 
       // Ecosystem
@@ -194,11 +196,11 @@
       // Hero
       'hero.badge': 'Developer Portal — Pilot',
       'hero.title': 'Die Zukunft der<br><span class="hero__title--highlight">TI Developer Experience.</span>',
-      'hero.subtitle': 'Willkommen im Pilotbetrieb des gematik Developer Portals. Aktuell mit der VSDM 2.0 API ausgestattet, bietet dieses Portal interaktive Dokumentation, einen Mock-Server, Contract Testing und Code-Generierung — alles was Sie für die Integration mit der Telematikinfrastruktur benötigen. Weitere APIs folgen auf Basis Ihres Feedbacks.',
+      'hero.subtitle': 'Willkommen im Pilotbetrieb des gematik Developer Portals. Aktuell mit der VSDM 2.0 API ausgestattet, bietet dieses Portal interaktive Dokumentation, einen Mock-Server, Contract Testing und Code-Generierung — alles was Sie für die Integration mit der Telematikinfrastruktur benötigen. Die Zukunft dieses Portals hängt von Ihrem Feedback ab.',
       'hero.stat1': 'VSDM2 — Pilotphase',
       'hero.stat2': 'Quality Gate',
       'hero.stat3': 'GitHub-basierte Tools',
-      'hero.pilot': 'Pilot<br>WIP',
+      'hero.pilot': 'Pilot',
 
       // Feature card CTAs
       'feat.ct.cta.card': 'Mehr erfahren',
@@ -258,9 +260,11 @@
       'feat.ct.detail.text2': 'Der Workflow integriert sich nahtlos in Ihre CI/CD-Pipeline. Nach dem lokalen Schreiben von Pact-Tests veröffentlichen Sie die generierten Vertragsdateien über API-Tokens in unserem Broker. Der Broker führt automatisch eine Verifizierung gegen den Provider durch und meldet zurück, ob Ihr Consumer-Vertrag kompatibel ist. Breaking Changes werden erkannt, bevor sie die Produktion erreichen — das gibt Ihnen Sicherheit bei jedem Deployment.',
       'feat.ct.detail.cta': 'Contract Testing erkunden',
       'feat.ops.detail.title': 'API Lifecycle Management — Vertiefung',
-      'feat.ops.detail.text1': 'Das API Lifecycle Management bildet das Rückgrat unseres API-Qualitätssicherungsprozesses. Ausgehend von FHIR StructureDefinitions generiert unser eigenes Tooling OpenAPI-Spezifikationen, die die zugrundeliegenden Datenmodelle exakt abbilden. Diese Spezifikationen werden dann mit umgebungsspezifischen Overlays für REF-, TU- und PU-Serverkonfigurationen angereichert, sodass jedes Deployment-Ziel die korrekten Base-URLs und Authentifizierungsparameter erhält.',
-      'feat.ops.detail.text2': 'Jede generierte Spezifikation durchläuft automatisiertes Linting mit Spectral-Regeln, die auf gematiks API-Design-Richtlinien zugeschnitten sind. Die Pipeline validiert strukturelle Korrektheit, Namenskonventionen und Security-Scheme-Definitionen. Sobald alle Quality Gates bestanden sind, wird die Spezifikation automatisch im API-Portal veröffentlicht, sodass die Dokumentation immer mit den neuesten FHIR-Profilen synchron bleibt.',
-      'feat.ops.detail.cta': 'Auf GitHub ansehen',
+      'feat.ops.detail.hint.title': 'Interaktives Diagramm',
+      'feat.ops.detail.hint.text': 'Klicken Sie auf die Phasen im Diagramm, um Details zu den einzelnen Schritten zu erfahren.',
+      'feat.ops.detail.text1': 'Das API Lifecycle Management bildet das Rückgrat unseres API-Qualitätssicherungsprozesses. Ausgehend von spezifizierten FHIR-Ressourcen generiert unser eigenes Tooling OpenAPI-Spezifikationen, die die zugrundeliegenden Datenmodelle exakt abbilden. Diese Spezifikationen werden dann mit umgebungsspezifischen Overlays für REF-, TU- und PU-Serverkonfigurationen angereichert, sodass jedes Deployment-Ziel die korrekten Base-URLs und Authentifizierungsparameter erhält.',
+      'feat.ops.detail.text2': 'Jede generierte Spezifikation durchläuft automatisiertes Linting mit Spectral-Regeln, die auf gematiks API-Design-Richtlinien zugeschnitten sind. Die Pipeline validiert strukturelle Korrektheit, Namenskonventionen, Beispielkorrektheit und Security-Scheme-Definitionen. Sobald alle Quality Gates bestanden sind, wird die Spezifikation automatisch im API-Portal veröffentlicht, sodass die Dokumentation immer mit den neuesten FHIR-Ressourcen synchron bleibt.',
+      'feat.ops.detail.cta': 'API-Portal öffnen',
 
       // Lifecycle Diagram Descriptions
       'lifecycle.design.title': 'Design',
@@ -276,14 +280,14 @@
       'lifecycle.iteration.title': 'Iteration',
       'lifecycle.iteration.text': 'Feedback aus Testing und realer Nutzung fließt zurück in die Design-Phase. Breaking-Change-Erkennung, Kompatibilitätsberichte und Community-Input treiben die kontinuierliche Verbesserung der API-Spezifikation voran.',
       'lifecycle.devportal.title': 'Dev-Portal',
-      'lifecycle.devportal.text': 'Das Developer Portal ist der zentrale Einstiegspunkt für alle Services, die für Entwickler bei der Integration mit der Telematikinfrastruktur relevant sind. Von dieser Landingpage aus greifen Entwickler auf das API-Portal (SwaggerHub) für interaktive Dokumentation, Mock-Server und Code-Generierung zu, sowie auf die Contract-Testing-Plattform (PactFlow) für Consumer-driven Kompatibilitätsprüfung. Jede validierte API-Spezifikation wird automatisch hier veröffentlicht und bildet so die zentrale Schnittstelle zwischen gematiks internem API-Lifecycle und der externen Entwickler-Community.',
+      'lifecycle.devportal.text': 'Das Developer Portal ist der zentrale Einstiegspunkt für Entwickler bei der Integration mit der Telematikinfrastruktur. Es bietet:\n\n• API-Portal (SwaggerHub) — interaktive Dokumentation, Mock-Server und Code-Generierung\n• Contract Testing (PactFlow) — bidirektionale Kompatibilitätsprüfung\n• Automatische Veröffentlichung — jede validierte API-Spezifikation wird hier automatisch publiziert\n\nDamit bildet es die zentrale Schnittstelle zwischen gematiks internem API-Lifecycle und der externen Entwickler-Community.',
       'lifecycle.validate.steps': 'Eingabevalidierung|FHIR nach OAS konvertieren|Overlay-Prozess|Beispiel- & Syntaxvalidierung|Linting (Spectral)|Mocking- & Code-Gen-Prüfungen|ZAP API Scan',
+      'lifecycle.validate.steps.desc': 'Prüfung, dass alle FHIR-Ressourcen und Eingaben vorhanden und strukturell valide sind.|FHIR StructureDefinitions und CapabilityStatements in eine OpenAPI-3.0-Spezifikation umwandeln.|Umgebungsspezifische Overlays (REF, TU, PU) für Server-URLs und Auth-Parameter anwenden.|Sicherstellen, dass alle Beispiele den Schemas entsprechen und die Spec syntaktisch korrekt ist.|Gematik-API-Design-Richtlinien mit eigenen Spectral-Regelsets durchsetzen.|Prüfen, dass die Spec mit Mock-Servern (Prism) und Code-Generatoren funktioniert.|OWASP-ZAP-Scans gegen die generierte API auf Sicherheitslücken durchführen.',
       'lifecycle.validate.result': 'Source-of-Truth-Repository',
       'lifecycle.publish.steps': 'Source-of-Truth-Repo|Publishing-Skript',
       'lifecycle.publish.split': 'API-Portal (SwaggerHub)|Contract Testing (PactFlow)',
       'lifecycle.testing.steps': 'Pact-Consumer-Tests gegen OpenAPI schreiben|Pact-Vertrag generieren|Im PactFlow-Broker veröffentlichen',
-      'lifecycle.testing.result': 'Vertrag verifiziert \u2713',
-
+      'lifecycle.testing.result': 'Vertrag verifiziert \u2713',      'lifecycle.testing.action': 'Mehr über Contract Testing erfahren →',
       // Resources
       'res.badge': 'Ressourcen',
       'res.title': 'Alles griffbereit.',
@@ -299,8 +303,8 @@
       'res.ru.title': 'RU as a Service',
       'res.ru.desc': 'Zugang zur Referenzumgebung (RU) zum Testen Ihrer Integrationen.',
       'res.ru.link': 'Mehr erfahren →',
-      'res.forum.title': 'gemmunity Forum',
-      'res.forum.desc': 'Vernetzen Sie sich mit Entwicklern, stellen Sie Fragen und teilen Sie Ihre Erfahrungen.',
+      'res.forum.title': 'Developer Portal Gemmunity Forum',
+      'res.forum.desc': 'Vernetzen Sie sich mit Entwicklern, stellen Sie Fragen und teilen Sie Ihre Erfahrungen im (privaten) Developer Portal Forum der Gemmunity.',
       'res.blog.title': 'Tech Blog',
       'res.blog.desc': 'Technische Deep Dives, Engineering-Einblicke und Hintergründe aus der gematik.',
       'res.blog.link': 'Blog lesen →',
@@ -313,8 +317,8 @@
       'project.title': 'Wo finde ich Projekt-Ressourcen?',
       'project.subtitle': 'FHIR-Profile, API-Dokumentation und Spezifikationen für die Projekte, die für das VSDM2.0-Pilotprojekt relevant sind. Nutzen Sie diese Tabelle, um direkt zur richtigen Stelle zu gelangen.',
       'project.col.project': 'Projekt',
-      'project.col.profiles': 'FHIR-Profile (Packages)',
-      'project.col.docs': 'IG / API-Dokumentation',
+      'project.col.profiles': 'FHIR Ressourcen',
+      'project.col.docs': 'Impl.-leitfaden / API-Doku',
       'project.col.spec': 'Spezifikation',
 
       // Ecosystem
@@ -382,7 +386,7 @@
 
   function init() {
     var saved = localStorage.getItem('lang');
-    var lang = saved || 'en';
+    var lang = saved || 'de';
 
     applyTranslations(lang);
     setActiveLang(lang);
