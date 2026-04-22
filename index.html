@@ -19,7 +19,7 @@
   by gematik, find details in the "Readme" file.
 -->
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="de" data-lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +62,7 @@
     <section class="hero">
         <div class="hero__pilot-badge">
             <span class="hero__pilot-heart">💚</span>
-            <span class="hero__pilot-text" data-i18n-html="hero.pilot">Pilot<br>WIP</span>
+            <span class="hero__pilot-text" data-i18n-html="hero.pilot">Pilot</span>
         </div>
         <div class="hero__bg">
             <div class="hero__gradient"></div>
@@ -78,7 +78,7 @@
                 Welcome to the gematik Developer Portal pilot. Currently featuring the 
                 VSDM 2.0 API, this portal gives you interactive documentation, a mock server, 
                 contract testing, and code generation — everything you need to integrate 
-                with the Telematikinfrastruktur. More APIs will follow based on your feedback.
+                with the Telematikinfrastruktur.
             </p>
             <!-- TODO: Add stats when they are available 
             <div class="hero__stats" hidden>
@@ -221,13 +221,18 @@
                     they reach production, giving you confidence in every deployment.
                 </p>
                 <div class="feature-detail__actions">
-                    <a href="https://gematik.pactflow.io/pacticipants" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ct.detail.cta">Explore Contract Testing</a>
+                    <a href="https://github.com/gematik/dev-portal-pact-examples" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ct.detail.cta">Explore Contract Testing</a>
                 </div>
             </div>
 
             <div class="feature-detail" id="feature-detail-apiops" aria-hidden="true">
                 <button class="feature-detail__close" aria-label="Close detail panel">&times;</button>
                 <h3 class="feature-detail__title" data-i18n="feat.ops.detail.title">API Lifecycle Managment — Deep Dive</h3>
+
+                <div class="contract-pilot-info" role="note" aria-label="Interactive diagram hint">
+                    <p class="contract-pilot-info__title" data-i18n="feat.ops.detail.hint.title">Interactive Diagram</p>
+                    <p class="contract-pilot-info__text" data-i18n="feat.ops.detail.hint.text">Click on the lifecycle stages in the diagram below to explore each phase in detail.</p>
+                </div>
 
                 <!-- Interactive API Lifecycle Diagram -->
                 <div class="lifecycle-container">
@@ -259,7 +264,7 @@
 
                 <p class="feature-detail__text" data-i18n="feat.ops.detail.text1">
                     The API Lifecycle Managment is the backbone of our API quality assurance process. Starting from 
-                    FHIR StructureDefinitions, our custom tooling generates OpenAPI specifications that 
+                    specified FHIR resources, our custom tooling generates OpenAPI specifications that 
                     accurately reflect the underlying data models. These specs are then enriched with 
                     environment-specific overlays for REF, TU, and PU server configurations, ensuring 
                     that each deployment target has the correct base URLs and authentication parameters.
@@ -267,12 +272,12 @@
                 <p class="feature-detail__text" data-i18n="feat.ops.detail.text2">
                     Every generated specification passes through automated linting with Spectral rules 
                     tailored to gematik's API design guidelines. The pipeline validates structural 
-                    correctness, naming conventions, and security scheme definitions. Once all quality 
+                    correctness, naming conventions, examples correctness, and security scheme definitions. Once all quality 
                     gates pass, the specification is automatically published to the API Portal, keeping 
-                    the documentation always in sync with the latest FHIR profiles.
+                    the documentation always in sync with the latest FHIR resources.
                 </p>
                 <div class="feature-detail__actions">
-                    <a href="https://github.com/gematik" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ops.detail.cta">View on GitHub</a>
+                    <a href="https://portal.developer.gematik.solutions" class="btn btn--primary" target="_blank" rel="noopener" data-i18n="feat.ops.detail.cta">Open API Portal</a>
                 </div>
             </div>
         </div>
@@ -482,12 +487,12 @@ curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
                     <span class="resource-card__link" data-i18n="res.ru.link">Learn more →</span>
                 </a>
 
-                <a href="https://www.gemmunity.de/community" class="resource-card" target="_blank" rel="noopener">
+                <a href="https://www.gemmunity.de/community?id=community_forum&sys_id=bef7afa639d84b509036c6d9caff1f3f" class="resource-card" target="_blank" rel="noopener">
                     <div class="resource-card__icon resource-card__icon--community">
                         <img src="assets/svg/resource-community-icon.svg" alt="" width="24" height="24" loading="lazy">
                     </div>
-                    <h3 class="resource-card__title" data-i18n="res.forum.title">gemmunity Forum</h3>
-                    <p class="resource-card__description" data-i18n="res.forum.desc">Connect with developers, ask questions, and share your experiences.</p>
+                    <h3 class="resource-card__title" data-i18n="res.forum.title">Developer Portal Gemmunity Forum</h3>
+                    <p class="resource-card__description" data-i18n="res.forum.desc">Use the (private) developer portal forum in the gemmunity to ask questions, and share your experiences.</p>
                     <span class="resource-card__link">gemmunity.de →</span>
                 </a>
 
@@ -520,7 +525,7 @@ curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
                     <thead>
                         <tr>
                             <th data-i18n="project.col.project">Project</th>
-                            <th data-i18n="project.col.docs">IG / API Docs</th>
+                            <th data-i18n="project.col.docs">Implementation Guide / API Docs</th>
                             <th data-i18n="project.col.profiles">FHIR Profiles (Packages)</th>
                             <th data-i18n="project.col.spec">Specification</th>
                         </tr>
@@ -555,21 +560,27 @@ curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
                             <td><a href="https://simplifier.net/vzd-fhir-directory" target="_blank" rel="noopener">VZD-FHIR-Directory</a></td>
                             <td><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">gemSpec</a></td>
                         </tr>
-                        -->
                         <tr>
-                            <td><strong>Versichertenstammdatenmanagement 2.0 (VSDM 2.0)</strong></td>
+                            <td><strong>Push Notifications</strong></td>
+                            <td><a href="https://gematik.github.io/gem-push-notifications-concept/#concept/concept.html" target="_blank" rel="noopener">Push Notification Concept (GitHub)</a></td>
+                            <td><span class="project-guide__none">—</span></td>
+                            <td><a href="https://gemspec.gematik.de/docs/gemF/gemF_PushNotification/latest/" target="_blank" rel="noopener">gemSpec_Push_Gateway</a></td>
+                        </tr>
+                        -->
+                        <tr class="project-guide__row--pilot">
+                            <td><strong><span class="project-guide__name-full">Versichertenstammdatenmanagement 2.0 (VSDM 2.0)</span><span class="project-guide__name-short">VSDM 2.0</span></strong></td>
                             <td><a href="https://github.com/gematik/spec-VSDM2" target="_blank" rel="noopener">spec-VSDM2 (GitHub)</a></td>
                             <td><a href="https://simplifier.net/vsdm2" target="_blank" rel="noopener">VSDM2</a></td>
                             <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_VSDM_2/latest/" target="_blank" rel="noopener">gemSpec_VSDM_2</a></td>
                         </tr>
-                        <tr>
-                            <td><strong>Zero Trust Access (ZETA)</strong></td>
+                        <tr class="project-guide__row--pilot">
+                            <td><strong><span class="project-guide__name-full">Zero Trust Access (ZETA)</span><span class="project-guide__name-short">ZETA</span></strong></td>
                             <td><a href="https://github.com/gematik/zeta" target="_blank" rel="noopener">zeta (GitHub)</a></td>
                             <td><span class="project-guide__none">—</span></td>
                             <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_ZETA/latest/" target="_blank" rel="noopener">gemSpec ZETA</a></td>
                         </tr>
-                        <tr>
-                            <td><strong>Proof of Patient Presence (PoPP)-Service</strong></td>
+                        <tr class="project-guide__row--pilot">
+                            <td><strong><span class="project-guide__name-full">Proof of Patient Presence (PoPP)-Service</span><span class="project-guide__name-short">PoPP</span></strong></td>
                             <td><a href="https://github.com/gematik/api-popp" target="_blank" rel="noopener">api-popp-service (GitHub)</a></td>
                             <td><span class="project-guide__none">—</span></td>
                             <td><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_PoPP_Service/latest/" target="_blank" rel="noopener">gemSpec_PoPP_Service</a></td>
