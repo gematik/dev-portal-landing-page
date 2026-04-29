@@ -183,6 +183,7 @@
       'footer.platform': 'Platform',
       'footer.resources': 'Resources',
       'footer.community': 'Community',
+      'footer.legal': 'Legal Information',
       'footer.copyright': '&copy; 2026 gematik GmbH. All rights reserved.',
     },
 
@@ -343,6 +344,7 @@
       'footer.platform': 'Plattform',
       'footer.resources': 'Ressourcen',
       'footer.community': 'Community',
+      'footer.legal': 'Rechtliches',
       'footer.copyright': '&copy; 2026 gematik GmbH. Alle Rechte vorbehalten.',
     },
   };
