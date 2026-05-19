@@ -20,3 +20,8 @@ allowlist:
 
   # Local development only
   - http://localhost:8000
+
+  # URLs with known intermittent issues or rate limits (the test failes but the URLs are still valid)
+  - https://simplifier.net/organization/gematik/~projects
+  - https://www.contributor-covenant.org/version/1/4/code-of-conduct/
+
