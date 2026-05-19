@@ -72,7 +72,7 @@
       'gs.card3.publish.text': 'Upload your generated <code>pact.json</code> (Base64-encoded) using the following parameters. The possible values for <code>PROVIDER_APPLICATION_NAME</code> are:',
       'gs.card3.publish.providers': '<li><code>vsdm2-zeta-gematik-reference</code> \u2014 VSDM2 with ZETA overlay</li><li><code>vsdm2-gematik-reference</code> \u2014 VSDM2 without ZETA overlay</li>',
       'gs.card3.publish.text2': 'The generated pact.json file must be Base64-encoded before uploading:',
-      'gs.feedback': '<strong>We value your feedback!</strong> This portal is in its pilot phase. If you encounter issues, need additional language support for code generation, or have suggestions for improvement, please let us know.',
+      'gs.feedback': '<strong>We value your feedback!</strong> This portal is in its pilot phase. If you encounter issues, need additional language support for code generation, or have suggestions for improvement, please let us know via our <a href="https://service.gematik.de/servicedesk/customer/portal/37/group/71" target="_blank" rel="noopener noreferrer">ticket system</a>.',
 
       // Features
       'feat.badge': 'Core Features',
@@ -171,6 +171,10 @@
       'eco.status.desc': 'Live status and monitoring of all TI services',
       'eco.roadmap.desc': 'Upcoming milestones and planned TI developments',
       'eco.newsletter.desc': 'Subscribe to the gematik newsletter for updates',
+      'eco.ticket.title': 'Ticket System',
+      'eco.ticket.desc': 'Report issues and request support for the developer portal',
+      'eco.forum.title': 'Developer Portal Forum',
+      'eco.forum.desc': 'Ask questions and exchange ideas with other developers in the gemmunity',
 
       // CTA
       'cta.title': 'Ready to start building?',
@@ -233,7 +237,7 @@
       'gs.card3.publish.text': 'Laden Sie Ihre generierte <code>pact.json</code> (Base64-kodiert) mit den folgenden Parametern hoch. Die m\u00f6glichen Werte f\u00fcr <code>PROVIDER_APPLICATION_NAME</code> sind:',
       'gs.card3.publish.providers': '<li><code>vsdm2-zeta-gematik-reference</code> \u2014 VSDM2 mit ZETA-Overlay</li><li><code>vsdm2-gematik-reference</code> \u2014 VSDM2 ohne ZETA-Overlay</li>',
       'gs.card3.publish.text2': 'Die erzeugte pact.json Datei muss Base64-kodiert \u00fcbertragen werden:',
-      'gs.feedback': '<strong>Wir freuen uns über Ihr Feedback!</strong> Dieses Portal befindet sich in der Pilotphase. Wenn Sie auf Probleme stoßen, zusätzliche Sprachunterstützung für die Code-Generierung benötigen oder Verbesserungsvorschläge haben, lassen Sie es uns bitte wissen.',
+      'gs.feedback': '<strong>Wir freuen uns über Ihr Feedback!</strong> Dieses Portal befindet sich in der Pilotphase. Wenn Sie auf Probleme stoßen, zusätzliche Sprachunterstützung für die Code-Generierung benötigen oder Verbesserungsvorschläge haben, lassen Sie es uns bitte über unser <a href="https://service.gematik.de/servicedesk/customer/portal/37/group/71" target="_blank" rel="noopener noreferrer">Ticket-System</a> wissen.',
 
       // Features
       'feat.badge': 'Kernfunktionen',
@@ -332,6 +336,10 @@
       'eco.status.desc': 'Live-Status und Monitoring aller TI-Dienste',
       'eco.roadmap.desc': 'Kommende Meilensteine und geplante TI-Entwicklungen',
       'eco.newsletter.desc': 'Abonnieren Sie den gematik-Newsletter für Updates',
+      'eco.ticket.title': 'Ticket-System',
+      'eco.ticket.desc': 'Probleme melden und Support für das Developer Portal anfordern',
+      'eco.forum.title': 'Developer Portal Forum',
+      'eco.forum.desc': 'Fragen stellen und sich mit anderen Entwicklern in der gemmunity austauschen',
 
       // CTA
       'cta.title': 'Bereit loszulegen?',
