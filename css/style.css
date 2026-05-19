@@ -391,6 +391,17 @@ ul, ol { list-style: none; }
     border-radius: var(--border-radius-l); border-left: 4px solid var(--green);
 }
 .getting-started__feedback p { font-size: var(--base-font-size-small); line-height: 1.6; color: var(--almost-black); }
+.getting-started__feedback a {
+    color: var(--dark-blue); text-decoration: underline; font-weight: 700;
+    text-underline-offset: 3px; text-decoration-thickness: 2px;
+    transition: text-decoration-color var(--hover-transition);
+}
+.getting-started__feedback a::after {
+    content: ' \2192';
+    transition: margin-left var(--hover-transition);
+}
+.getting-started__feedback a:hover { text-decoration-color: var(--green); }
+.getting-started__feedback a:hover::after { margin-left: 4px; }
 
 @media (max-width: 640px) {
     .getting-started__card { grid-template-columns: 1fr; }
