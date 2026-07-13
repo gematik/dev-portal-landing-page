@@ -18,7 +18,10 @@
 # For additional notes and disclaimer from gematik and in case of changes
 # by gematik, find details in the "Readme" file.
 
-"""Check external URLs in project files using HTTP HEAD requests only."""
+"""Check external URLs in project files using HTTP HEAD requests.
+
+Falls back to a GET request when a server rejects HEAD (e.g. 405).
+"""
 
 from __future__ import annotations
 
@@ -112,6 +115,30 @@ def load_allowlist(path: Path) -> set[str]:
     return entries
 
 
+# Status codes that indicate the server rejects the HTTP method itself
+# rather than the resource being unavailable. In these cases we retry
+# with a GET request, since many servers do not implement HEAD.
+METHOD_FALLBACK_STATUS = {403, 405, 501}
+
+
+def _request_url(url: str, method: str, timeout: float) -> tuple[bool, str]:
+    req = request.Request(
+        url,
+        method=method,
+        headers={"User-Agent": "link-checker/1.0"},
+    )
+    try:
+        with request.urlopen(req, timeout=timeout) as response:
+            status = response.getcode()
+            return 200 <= status < 400, str(status)
+    except HTTPError as err:
+        return False, str(err.code)
+    except (URLError, TimeoutError, socket.timeout) as err:
+        return False, f"ERROR: {err}"
+    except Exception as err:  # pragma: no cover
+        return False, f"ERROR: {err}"
+
+
 def validate_url(url: str, timeout: float) -> tuple[str, bool, str]:
     normalized = normalize_url(url)
     try:
@@ -121,24 +148,14 @@ def validate_url(url: str, timeout: float) -> tuple[str, bool, str]:
     if parts.scheme not in {"http", "https"}:
         return normalized, True, "SKIPPED"
 
-    req = request.Request(
-        normalized,
-        method="HEAD",
-        headers={"User-Agent": "link-checker/1.0"},
-    )
+    ok, status = _request_url(normalized, "HEAD", timeout)
 
-    try:
-        with request.urlopen(req, timeout=timeout) as response:
-            status = response.getcode()
-            if 200 <= status < 400:
-                return normalized, True, str(status)
-            return normalized, False, str(status)
-    except HTTPError as err:
-        return normalized, False, str(err.code)
-    except (URLError, TimeoutError, socket.timeout) as err:
-        return normalized, False, f"ERROR: {err}"
-    except Exception as err:  # pragma: no cover
-        return normalized, False, f"ERROR: {err}"
+    # Some servers do not allow HEAD requests and answer with 405 (or
+    # 403/501). Retry with GET so these links are not reported as broken.
+    if not ok and status.isdigit() and int(status) in METHOD_FALLBACK_STATUS:
+        ok, status = _request_url(normalized, "GET", timeout)
+
+    return normalized, ok, status
 
 
 def main() -> int:
