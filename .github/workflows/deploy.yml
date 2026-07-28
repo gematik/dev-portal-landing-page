@@ -31,6 +31,14 @@ jobs:
       - name: Run link check
         run: python tests/check_links.py
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run cookie consent tests
+        run: python tests/test_cookie_consent.py
+
   deploy:
     if: github.event_name != 'pull_request'
     needs: link-check

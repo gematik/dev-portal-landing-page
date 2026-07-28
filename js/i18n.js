@@ -188,7 +188,25 @@
       'footer.resources': 'Resources',
       'footer.community': 'Community',
       'footer.legal': 'Legal Information',
+      'footer.privacy': 'Privacy Policy',
+      'footer.cookies': 'Cookie settings',
       'footer.copyright': '&copy; 2026 gematik GmbH. All rights reserved.',
+
+      // Cookie banner
+      'cookie.title': 'Privacy settings',
+      'cookie.text': 'We use cookies on this website. Some are essential for the website to work. Others help us improve this website and your experience. By clicking &quot;Accept all&quot;, you consent to storing and accessing information on your device (§&nbsp;25&nbsp;(1)&nbsp;TDDDG) and to the subsequent processing for the purposes described (Art.&nbsp;6&nbsp;(1)(a)&nbsp;GDPR). You can withdraw your consent at any time with effect for the future. Further information is available in our <a href="https://www.gematik.de/datenschutz" target="_blank" rel="noopener">privacy policy</a>.',
+      'cookie.accept': 'Accept all',
+      'cookie.deny': 'Deny',
+      'cookie.settings': 'Settings',
+      'cookie.settingsTitle': 'Cookie settings',
+      'cookie.settingsIntro': 'Choose which cookies you allow. Essential cookies are always active.',
+      'cookie.essential': 'Essential',
+      'cookie.essentialDesc': 'Required for basic site functions such as language preference and storing your consent choice.',
+      'cookie.alwaysOn': 'Always on',
+      'cookie.analytics': 'Statistics (Google Analytics)',
+      'cookie.analyticsDesc': 'Helps us understand how the developer portal is used so we can improve it. Sets Google Analytics cookies after you consent.',
+      'cookie.save': 'Save settings',
+      'cookie.fab': 'Open cookie settings',
     },
 
     de: {
@@ -353,7 +371,25 @@
       'footer.resources': 'Ressourcen',
       'footer.community': 'Community',
       'footer.legal': 'Rechtliches',
+      'footer.privacy': 'Datenschutz',
+      'footer.cookies': 'Cookie-Einstellungen',
       'footer.copyright': '&copy; 2026 gematik GmbH. Alle Rechte vorbehalten.',
+
+      // Cookie banner
+      'cookie.title': 'Privatsphäre-Einstellungen',
+      'cookie.text': 'Wir verwenden Cookies auf unserer Webseite. Einige von ihnen sind essenziell und damit für den Betrieb und die Funktionen der Webseite zwingend erforderlich. Andere helfen uns, diese Webseite und Ihre Erfahrung zu verbessern. Indem Sie auf &quot;Alles akzeptieren&quot; klicken, stimmen Sie sowohl dem Speichern und Abrufen von Informationen auf Ihrem Gerät (§&nbsp;25 Abs.&nbsp;1 TDDDG) sowie der anschließenden Weiterverarbeitung für die nachfolgend dargestellten bzw. die von Ihnen ausgewählten Verarbeitungszwecke zu (Art.&nbsp;6 Abs.&nbsp;1 a) DS-GVO). Ihre Einwilligung in die Speicherung, Abrufung und Weiterverarbeitung dieser Daten kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Die Rechtmäßigkeit der Speicherung, Abrufung und Weiterverarbeitung dieser Daten zur Auswertung und Analyse bis zum Zeitpunkt des Widerrufs bleibt hiervon unberührt. Nähere Informationen zu den verwendeten Technologien erhalten Sie in unserer <a href="https://www.gematik.de/datenschutz" target="_blank" rel="noopener">Datenschutzerklärung</a>.',
+      'cookie.accept': 'Alles akzeptieren',
+      'cookie.deny': 'Ablehnen',
+      'cookie.settings': 'Einstellungen',
+      'cookie.settingsTitle': 'Cookie-Einstellungen',
+      'cookie.settingsIntro': 'Wählen Sie, welche Cookies Sie zulassen. Essenzielle Cookies sind immer aktiv.',
+      'cookie.essential': 'Essenziell',
+      'cookie.essentialDesc': 'Erforderlich für grundlegende Funktionen der Webseite wie die Spracheinstellung und das Speichern Ihrer Einwilligung.',
+      'cookie.alwaysOn': 'Immer aktiv',
+      'cookie.analytics': 'Statistik (Google Analytics)',
+      'cookie.analyticsDesc': 'Hilft uns zu verstehen, wie das Developer Portal genutzt wird, damit wir es verbessern können. Setzt Google-Analytics-Cookies erst nach Ihrer Einwilligung.',
+      'cookie.save': 'Einstellungen speichern',
+      'cookie.fab': 'Cookie-Einstellungen öffnen',
     },
   };
 
@@ -380,6 +416,14 @@
       var key = el.getAttribute('data-i18n-src');
       if (translations[lang] && translations[lang][key] != null) {
         el.setAttribute('src', translations[lang][key]);
+      }
+    });
+    // Update aria-label / title from translation keys
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (translations[lang] && translations[lang][key] != null) {
+        el.setAttribute('aria-label', translations[lang][key]);
+        el.setAttribute('title', translations[lang][key]);
       }
     });
     // Update <html lang>

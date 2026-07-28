@@ -18,6 +18,7 @@ allowlist:
   - https://x.com/gematik1
   - https://www.xing.com/pages/gematik
   - http://contributor-covenant.org/version/1/4/
+  - http://contributor-covenant.org
 
   # Local development only
   - http://localhost:8000
