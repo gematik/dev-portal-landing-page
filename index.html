@@ -31,6 +31,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="shortcut icon" href="assets/favicon.ico">
+    <!-- Google Consent Mode v2 — deny analytics until the user accepts (same pattern as gematik.de) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500
+        });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -758,6 +770,8 @@ curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
                     <div class="footer__column">
                         <h4 class="footer__column-title" data-i18n="footer.legal">Legal Information</h4>
                         <a href="https://www.gematik.de/impressum" target="_blank" rel="noopener">Impressum</a>
+                        <a href="https://www.gematik.de/datenschutz" target="_blank" rel="noopener" data-i18n="footer.privacy">Privacy Policy</a>
+                        <button type="button" class="footer__cookie-link" id="cookie-settings-open" data-i18n="footer.cookies">Cookie settings</button>
                     </div>
                 </div>
             </div>
@@ -779,15 +793,68 @@ curl -X POST "$CONTRACT_BROKER_URL/contracts/publish" \
         </div>
     </footer>
 
+    <!-- Cookie consent banner (gematik.de / Usercentrics-style first layer) -->
+    <div id="cookie-banner" class="cookie-banner" hidden>
+        <div class="cookie-banner__backdrop" data-cookie-action="close-settings" tabindex="-1" aria-hidden="true"></div>
+        <div class="cookie-banner__dialog" role="dialog" aria-modal="true" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc">
+            <div class="cookie-banner__main" id="cookie-banner-main">
+                <h2 id="cookie-banner-title" class="cookie-banner__title" data-i18n="cookie.title">Privacy settings</h2>
+                <p id="cookie-banner-desc" class="cookie-banner__text" data-i18n-html="cookie.text">
+                    We use cookies on this website. Some are essential for the website to work. Others help us improve this website and your experience. By clicking &quot;Accept all&quot;, you consent to storing and accessing information on your device (§&nbsp;25&nbsp;(1)&nbsp;TDDDG) and to the subsequent processing for the purposes described (Art.&nbsp;6&nbsp;(1)(a)&nbsp;GDPR). You can withdraw your consent at any time with effect for the future. Further information is available in our <a href="https://www.gematik.de/datenschutz" target="_blank" rel="noopener">privacy policy</a>.
+                </p>
+                <div class="cookie-banner__actions">
+                    <button type="button" class="btn btn--outline cookie-banner__btn" data-cookie-action="deny" data-i18n="cookie.deny">Deny</button>
+                    <button type="button" class="btn btn--outline cookie-banner__btn" data-cookie-action="settings" data-i18n="cookie.settings">Settings</button>
+                    <button type="button" class="btn btn--primary cookie-banner__btn" data-cookie-action="accept" data-i18n="cookie.accept">Accept all</button>
+                </div>
+            </div>
+            <div class="cookie-banner__detail" id="cookie-banner-detail" hidden>
+                <h2 class="cookie-banner__title" data-i18n="cookie.settingsTitle">Cookie settings</h2>
+                <p class="cookie-banner__text" data-i18n="cookie.settingsIntro">Choose which cookies you allow. Essential cookies are always active.</p>
+                <ul class="cookie-banner__categories">
+                    <li class="cookie-banner__category">
+                        <div class="cookie-banner__category-info">
+                            <strong data-i18n="cookie.essential">Essential</strong>
+                            <span data-i18n="cookie.essentialDesc">Required for basic site functions such as language preference and storing your consent choice.</span>
+                        </div>
+                        <label class="cookie-banner__switch cookie-banner__switch--locked">
+                            <input type="checkbox" checked disabled aria-disabled="true">
+                            <span class="cookie-banner__switch-ui" aria-hidden="true"></span>
+                            <span class="sr-only" data-i18n="cookie.alwaysOn">Always on</span>
+                        </label>
+                    </li>
+                    <li class="cookie-banner__category">
+                        <div class="cookie-banner__category-info">
+                            <strong data-i18n="cookie.analytics">Statistics (Google Analytics)</strong>
+                            <span data-i18n="cookie.analyticsDesc">Helps us understand how the developer portal is used so we can improve it. Sets Google Analytics cookies after you consent.</span>
+                        </div>
+                        <label class="cookie-banner__switch">
+                            <input type="checkbox" id="cookie-analytics-toggle" name="analytics">
+                            <span class="cookie-banner__switch-ui" aria-hidden="true"></span>
+                            <span class="sr-only" data-i18n="cookie.analytics">Statistics (Google Analytics)</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="cookie-banner__actions">
+                    <button type="button" class="btn btn--outline cookie-banner__btn" data-cookie-action="deny" data-i18n="cookie.deny">Deny</button>
+                    <button type="button" class="btn btn--primary cookie-banner__btn" data-cookie-action="save" data-i18n="cookie.save">Save settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="cookie-fab" class="cookie-fab" hidden aria-haspopup="dialog" data-i18n-aria="cookie.fab" aria-label="Cookie-Einstellungen öffnen" title="Cookie-Einstellungen öffnen">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 10 10c0-.3 0-.6-.1-.9a4 4 0 0 1-5-5c-.3-.1-.6-.1-.9-.1Z" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="8.5" cy="10" r="1.1" fill="currentColor"/>
+            <circle cx="12.5" cy="7.5" r="1.1" fill="currentColor"/>
+            <circle cx="15" cy="12.5" r="1.1" fill="currentColor"/>
+            <circle cx="10" cy="14.5" r="1.1" fill="currentColor"/>
+        </svg>
+    </button>
+
     <script src="js/i18n.js"></script>
+    <script src="js/cookies.js"></script>
     <script src="js/main.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZJHX6TR23"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-2ZJHX6TR23');
-    </script>
 </body>
 </html>

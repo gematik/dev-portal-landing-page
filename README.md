@@ -73,6 +73,13 @@ Optional flags:
 - `--workers <n>` to control parallel checks
 - `--allowlist <path>` to ignore known URLs (defaults to `tests/linkcheck-allowlist.yml`)
 
+Run cookie consent tests (HTML/JS contract checks + Node runtime for accept/deny/GA gating).
+Requires Python 3 and Node.js.
+
+```bash
+python3 tests/test_cookie_consent.py
+```
+
 ## Deployment
 
 The site is automatically deployed to GitHub Pages on every push to `main` via the workflow in `.github/workflows/deploy.yml`.
